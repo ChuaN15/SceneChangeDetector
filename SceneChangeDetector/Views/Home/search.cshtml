@@ -1,0 +1,25 @@
+﻿@model List<SceneChangeDetector.Controllers.VIDEO>
+
+<div class="container py-4" style="margin-top:30px">
+    <div class="card">
+        <div class="card-header bg-danger text-white">
+        </div>
+        <div class="card-body">
+            <div class="row">
+                @foreach (var item in Model)
+                {
+                    <div class="col-sm-4 col-md-4 col-xs-9">
+                        <div class="video-frame">
+                            <a href='@Url.Action("ViewVideo", "Home", new { id = item.ID })'>
+                                <img src="@Url.Action("GetUserImage", "Home", new {id=item.ID})" style="width:333px; height:186px;" cursor: hand />
+                            </a>
+                        </div>
+                        <h4>@item.Name</h4>
+                        <p style="margin-top:-9px ">@item.Email</p>
+                        <p style="margin-top:-9px ">@item.ViewCount views                    @item.UploadDateTime.Date.ToString("dd/MM/yyyy")</p>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

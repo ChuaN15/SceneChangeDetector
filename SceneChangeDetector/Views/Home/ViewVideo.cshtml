@@ -1,0 +1,61 @@
+﻿@model List<String> 
+
+@{
+    SceneChangeDetector.Controllers.SceneDetectorEntities ent = new SceneChangeDetector.Controllers.SceneDetectorEntities();
+
+    int id = int.Parse(Session["VideoId"].ToString());
+    var whichvideo = ent.VIDEOs.FirstOrDefault(x => x.ID == id);
+
+    ent.SaveChanges();
+
+    //string sceneCSV = @"C:\Users\chuan\source\repos\SceneChangeDetector\SceneChangeDetector\Controllers\VideoFileUpload\" + @whichvideo.ID.ToString() + "\" + whichvideo.ID.ToString() + @"-Scenes.csv";
+    int count = 0;
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div class="video-frame">
+    <video style="width:100%; height:500px;" controls>
+        <source src="@Url.Content(@whichvideo.FilePath)" type="video/mp4" />
+    </video>
+</div>
+
+<h4>@whichvideo.Name</h4>
+<p>@whichvideo.ViewCount views</p>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<tr>
+    <td style="text-align:center; vertical-align:middle;" class="no-print">
+            @Html.ActionLink("Download CSV", "downloadfile", new { id = int.Parse(Session["VideoId"].ToString()) })
+</td>
+</tr>
+
+<h3 style="margin-top:36px">Seperated Scenes</h3>
+<div class="container py-4" style="margin-top:10px">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                @foreach (var item in Model)
+                {
+                    count++;
+                    <div class="col-sm-4 col-md-4 col-xs-9">
+
+                        <h4>Part @count</h4>
+                        <div class="video-frame">
+                            <video style="width:100%; height:100%;" controls>
+                                <source src="@Url.Content(@"~/Controllers/VideoFileUpload/" + whichvideo.ID.ToString() + "/" + @item.ToString())" type="video/mp4" />
+                            </video>
+                        </div>
+                        <h4></h4>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@if (ViewBag.Message != null)
+{
+    <script type="text/javascript">
+
+            window.onload = function () {
+                alert("@ViewBag.Message");
+        };
+    </script>
+}
+
+<div class="jumbotron">
+    <h1>Scene Detector</h1>
+    <p class="lead">Scene Detector is used for detecting scene changes in videos, and automatically splitting the video into separate clips.</p>
+    <p class="lead">Common uses of Scene Detector:</p>
+    <ul style="padding-left:20px">
+        <li>splitting home videos or other source footage into individual scenes</li>
+        <li>automated detection and removal of commercials from PVR-saved video sources</li>
+        <li>processing and splitting surveillance camera footage</li>
+        <li>statistical analysis of videos to find suitable "loops" for looping GIFs/cinemagraphs</li>
+        <li>academic analysis of film and video (e.g. finding mean shot length)</li>
+    </ul>
+    <p>@Html.ActionLink("Start now", "RegisterVideo", "Home", routeValues: null, htmlAttributes: new { @class = "btn btn-default" })</p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Getting started</h2>
+        <p>
+            Having hard time to splitting home videos or other source footage into individual scenes?
+            Let the scenes detector to do it.
+        </p>
+        <p>@Html.ActionLink("Upload Video >>", "RegisterVideo", "Home", routeValues: null, htmlAttributes: new { @class = "btn btn-default" })</p>
+    </div>
+</div>
