@@ -3,7 +3,7 @@ SceneChangeDetector is developed by using ASP.NET and python library [PySceneDet
 
 The user will first upload their video to the system. Then it usually will take system a few minutes to seperate videos into different scenes. User will receive an email with their video link once the process is done. 
 
-# Input Video
+# Input Video 
 ![](https://github.com/ChuaN15/SceneChangeDetector/blob/master/SceneChangeDetector/ezgif.com-crop.gif)
 
 # Result
