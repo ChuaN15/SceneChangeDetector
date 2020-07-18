@@ -230,7 +230,7 @@ namespace SceneChangeDetector.Controllers
                         sw.WriteLine(@"SET TargetAccount =% ~3");
                         sw.WriteLine(@"SET PowerShellDir = C:\Windows\System32\WindowsPowerShell\v1.0");
                         sw.WriteLine(@"CD /D "" % PowerShellDir % """);
-                        sw.WriteLine(@"Powershell -ExecutionPolicy Bypass -Command "" & 'C:\ChuaN\Degree\Degree Sem4\Multimedia Database\Stage2 & 3\SendEmail.ps1' 'chuanyou1997@gmail.com' 'ccy04050' " + video.Email  + @" 'Dear user, Your video has been processed into seperated scenes. Click on the link to access it. Link:" + " http://7aee1956700c.ngrok.io/Home/ViewVideo/" + video.ID.ToString() + "'");
+                        sw.WriteLine(@"Powershell -ExecutionPolicy Bypass -Command "" & 'C:\ChuaN\Degree\Degree Sem4\Multimedia Database\Stage2 & 3\SendEmail.ps1' 'email-address' 'password' " + video.Email  + @" 'Dear user, Your video has been processed into seperated scenes. Click on the link to access it. Link:" + " http://7aee1956700c.ngrok.io/Home/ViewVideo/" + video.ID.ToString() + "'");
                         sw.WriteLine(@"pause");
                     }
                 }
